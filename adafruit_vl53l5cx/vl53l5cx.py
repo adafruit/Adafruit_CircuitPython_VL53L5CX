@@ -199,9 +199,8 @@ class VL53L5CX:
 
     :param ~busio.I2C i2c: The I2C bus the sensor is connected to
     :param int address: The I2C address of the sensor. Defaults to 0x29.
-    :param str firmware_path: Path to a firmware file made by
-        ``vl53l5cx_buffers_to_bin.py``. Defaults to the ``vl53l5cx_firmware.bin``
-        installed with this library.
+    :param str firmware_path: Path to a firmware file. Defaults to the
+        ``vl53l5cx_firmware.bin`` installed with this library.
     """
 
     _page = UnaryStruct(_PAGE, "B")
