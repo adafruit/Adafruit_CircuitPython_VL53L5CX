@@ -24,14 +24,12 @@ Table of Contents
 .. toctree::
     :caption: Tutorials
 
-.. todo:: Add any Learn guide links here. If there are none, then simply delete this todo and leave
-    the toctree above for use later.
+    Learn Guide: <https://learn.adafruit.com/adafruit-vl53l5cx-time-of-flight-distance-8x8-pixel-camera>
 
 .. toctree::
     :caption: Related Products
 
-.. todo:: Add any product links here. If there are none, then simply delete this todo and leave
-    the toctree above for use later.
+    Adafruit VL53L5CX Time-of-Flight Distance 8x8 Pixel Camera <https://www.adafruit.com/product/6503>
 
 .. toctree::
     :caption: Other Links

@@ -7,5 +7,5 @@
 API Reference
 #############
 
-.. automodule:: adafruit_vl53l5cx
+.. automodule:: adafruit_vl53l5cx.vl53l5cx
     :members:

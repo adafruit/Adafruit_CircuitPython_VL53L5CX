@@ -30,6 +30,7 @@ This driver depends on:
 
 * `Adafruit CircuitPython <https://github.com/adafruit/circuitpython>`_
 * `Bus Device <https://github.com/adafruit/Adafruit_CircuitPython_BusDevice>`_
+* `Register <https://github.com/adafruit/Adafruit_CircuitPython_Register>`_
 
 Please ensure all dependencies are available on the CircuitPython filesystem.
 This is easily achieved by downloading
@@ -93,7 +94,26 @@ Usage Example
 
 .. code-block:: python
 
-    
+    import time
+    import board
+    from adafruit_vl53l5cx import vl53l5cx
+
+    i2c = board.I2C()
+    sensor = vl53l5cx.VL53L5CX(i2c)
+
+    sensor.resolution = vl53l5cx.RESOLUTION_8X8
+    sensor.ranging_frequency = 10
+    sensor.start_ranging()
+    width = 8 if sensor.resolution == vl53l5cx.RESOLUTION_8X8 else 4
+
+    while True:
+        if sensor.data_ready:
+            data = sensor.ranging_data
+            for row in range(width):
+                zones = data.distance[row * width : (row + 1) * width]
+                print(" ".join(f"{mm:5d}" for mm in zones))
+            print()
+        time.sleep(0.1)
 
 Documentation
 =============
