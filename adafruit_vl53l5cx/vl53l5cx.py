@@ -2,7 +2,7 @@
 #
 # SPDX-License-Identifier: MIT
 """
-`adafruit_vl53l5cx`
+:py:class:`~adafruit_vl53l5cx.vl53l5cx`
 ================================================================================
 
 CircuitPython driver for the Adafruit VL53L5CX Time-of-Flight Distance 8x8 Pixel Camera
@@ -621,7 +621,7 @@ class VL53L5CX:
 
     @property
     def resolution(self) -> int:
-        """Number of ranging zones, `RESOLUTION_4X4` (16) or `RESOLUTION_8X8` (64).
+        """Number of ranging zones, ``RESOLUTION_4X4`` (16) or ``RESOLUTION_8X8`` (64).
         Change this while ranging is stopped."""
         zone_cfg = self._dci_read(_DCI_ZONE_CFG, 8)
         return zone_cfg[0] * zone_cfg[1]
@@ -683,7 +683,7 @@ class VL53L5CX:
     @property
     def target_order(self) -> int:
         """Which target is reported when a zone sees several:
-        `TARGET_ORDER_CLOSEST` or `TARGET_ORDER_STRONGEST`."""
+        ``TARGET_ORDER_CLOSEST`` or ``TARGET_ORDER_STRONGEST``."""
         return self._dci_read(_DCI_TGT_ORDER, 4)[0x00]
 
     @target_order.setter
@@ -694,7 +694,7 @@ class VL53L5CX:
 
     @property
     def ranging_mode(self) -> int:
-        """`RANGING_MODE_CONTINUOUS` or `RANGING_MODE_AUTONOMOUS`. Autonomous mode
+        """``RANGING_MODE_CONTINUOUS`` or ``RANGING_MODE_AUTONOMOUS``. Autonomous mode
         uses `integration_time` and has lower power consumption."""
         if self._dci_read(_DCI_RNG_MODE, 8)[0x01] == 0x03:
             return RANGING_MODE_AUTONOMOUS
@@ -718,7 +718,7 @@ class VL53L5CX:
 
     @property
     def power_mode(self) -> Optional[int]:
-        """`POWER_MODE_WAKEUP` or `POWER_MODE_SLEEP`. Reads as None when the mode
+        """``POWER_MODE_WAKEUP`` or ``POWER_MODE_SLEEP``. Reads as None when the mode
         is neither, such as while ranging. Stop ranging before sleeping."""
         self._page = 0x00
         mode = self._pwr_ctrl
